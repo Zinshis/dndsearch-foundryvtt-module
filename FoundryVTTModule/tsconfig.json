@@ -3,8 +3,8 @@
     "target": "ES2022",
     "module": "ES2022",
     "moduleResolution": "bundler",
-    "typeRoots": ["./types", "./node_modules/@types"],
-    "types": ["foundry"],
+    "typeRoots": ["./types", "./node_modules", "./node_modules/@types"],
+    "types": ["@league-of-foundry-developers/foundry-vtt-types"],
     "rootDir": "src",
     "outDir": "dist",
     "strict": true,
@@ -12,5 +12,6 @@
     "declaration": false,
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts", "types/**/*.d.ts"],
+  "exclude": ["dist", "**/*.test.*", "**/*.spec.*"]
 }

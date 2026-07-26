@@ -10,4 +10,4 @@ The empty `assets`, `templates`, and `packs` directories are reserved for module
 
 ## Release
 
-Before publishing, update the version and compatibility values in `module.json`, build the project, and package the module files (including `dist/`) in a ZIP archive. Add public `manifest` and `download` URLs to `module.json` once releases are hosted.
+`module.json` contains placeholders for the release version, manifest URL, and download URL. `npm run package` reads the version from `package.json`, resolves those values into `release/module.json`, and includes that generated manifest in `release/dndsearch-mcp-module.zip`. Publish both release files as GitHub release assets.

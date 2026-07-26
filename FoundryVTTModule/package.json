@@ -6,8 +6,7 @@
   "scripts": {
     "build": "tsc --project tsconfig.json",
     "clean": "tsc --build --clean",
-    "sync-version": "node scripts/sync-module-version.mjs",
-    "package": "npm run sync-version && npm run build && node scripts/package.mjs",
+    "package": "npm run build && node scripts/package.mjs",
     "release": "npm run package"
   },
   "description": "Foundry VTT module for D&D search.",

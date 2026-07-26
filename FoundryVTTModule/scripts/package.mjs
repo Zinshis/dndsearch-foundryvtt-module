@@ -1,13 +1,16 @@
-import archiver from 'archiver';
+import { ZipArchive } from 'archiver';
 import { createWriteStream } from 'node:fs';
-import { mkdir, stat, unlink } from 'node:fs/promises';
+import { mkdir, readFile, stat, unlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const moduleRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const releaseRoot = path.join(moduleRoot, 'release');
 const archivePath = path.join(releaseRoot, 'dndsearch-mcp-module.zip');
+const packagePath = path.join(moduleRoot, 'package.json');
+const releaseModulePath = path.join(releaseRoot, 'module.json');
 const archiveRoot = 'dndsearch-mcp-module';
+const repositoryUrl = 'https://github.com/Zinshis/dndsearch-foundryvtt-module';
 
 const runtimeEntries = [
   'assets',
@@ -23,10 +26,20 @@ const runtimeEntries = [
 ];
 
 await mkdir(releaseRoot, { recursive: true });
+const packageManifest = JSON.parse(await readFile(packagePath, 'utf8'));
+const moduleTemplate = JSON.parse(await readFile(path.join(moduleRoot, 'module.json'), 'utf8'));
+const releaseManifest = {
+  ...moduleTemplate,
+  version: packageManifest.version,
+  manifest: `${repositoryUrl}/releases/latest/download/module.json`,
+  download: `${repositoryUrl}/releases/latest/download/dndsearch-mcp-module.zip`,
+};
+
+await writeFile(releaseModulePath, `${JSON.stringify(releaseManifest, null, 2)}\n`);
 if (await stat(archivePath).then(() => true, () => false)) await unlink(archivePath);
 
 const output = createWriteStream(archivePath);
-const archive = archiver('zip');
+const archive = new ZipArchive();
 
 const completed = new Promise((resolve, reject) => {
   output.on('close', resolve);
@@ -36,7 +49,7 @@ const completed = new Promise((resolve, reject) => {
 
 archive.pipe(output);
 for (const entry of runtimeEntries) {
-  const sourcePath = path.join(moduleRoot, entry);
+  const sourcePath = entry === 'module.json' ? releaseModulePath : path.join(moduleRoot, entry);
   const destinationPath = path.posix.join(archiveRoot, entry.replaceAll(path.sep, '/'));
   const details = await stat(sourcePath);
 
