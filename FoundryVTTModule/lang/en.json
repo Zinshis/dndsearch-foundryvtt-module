@@ -1,0 +1,10 @@
+{
+  "DNDSEARCH": {
+    "Settings": {
+      "ShowWelcomeMessage": {
+        "Name": "Show ready message",
+        "Hint": "Display a confirmation when D&D Search finishes loading."
+      }
+    }
+  }
+}

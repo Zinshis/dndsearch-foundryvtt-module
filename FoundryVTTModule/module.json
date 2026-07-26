@@ -1,0 +1,40 @@
+{
+  "id": "dndsearch-mcp-module",
+  "title": "D&D Search MCP Module",
+  "description": "Search and reference tools for Dungeons & Dragons in Foundry VTT.",
+  "version": "1.0.0",
+  "library": "false",
+  "manifestPlusVersion": "1.2.0",
+  "authors": [
+    {
+      "name": "Yunzel"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14",
+    "maximum": "14"
+  },
+  "esmodules": [
+    "dist/module.js"
+  ],
+  "styles": [
+    "styles/dndsearch.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "url": "https://github.com/Zinshis/dnd-search",
+  "bugs": "https://github.com/Zinshis/dnd-search/issues",
+  "changelog": "https://github.com/Zinshis/dnd-search/blob/main/DndSearch.FoundryVTTModule/CHANGELOG.md",
+  "readme": "https://github.com/Zinshis/dnd-search/blob/main/DndSearch.FoundryVTTModule/README.md",
+  "license": "https://github.com/Zinshis/dnd-search/blob/main/DndSearch.FoundryVTTModule/LICENSE",
+  "manifest": "https://raw.githubusercontent.com/Zinshis/dnd-search/main/DndSearch.FoundryVTTModule/module.json",
+  "download": "https://github.com/Zinshis/dnd-search/releases/latest/download/dndsearch-mcp-module.zip",
+  "socket": false,
+  "protected": false
+}
