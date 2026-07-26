@@ -31,8 +31,8 @@ const moduleTemplate = JSON.parse(await readFile(path.join(moduleRoot, 'module.t
 const releaseManifest = {
   ...moduleTemplate,
   version: packageManifest.version,
-  manifest: `${repositoryUrl}/releases/v${packageManifest.version}/download/module.json`,
-  download: `${repositoryUrl}/releases/v${packageManifest.version}/download/dndsearch-mcp-module.zip`,
+  manifest: `${repositoryUrl}/releases/download/v${packageManifest.version}/module.json`,
+  download: `${repositoryUrl}/releases/download/v${packageManifest.version}/dndsearch-mcp-module.zip`,
 };
 
 await writeFile(releaseModulePath, `${JSON.stringify(releaseManifest, null, 2)}\n`);
