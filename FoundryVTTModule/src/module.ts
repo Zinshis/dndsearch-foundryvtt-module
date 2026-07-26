@@ -19,5 +19,9 @@ Hooks.once("ready", () => {
   
   if (game.settings.get(MODULE_ID, "showWelcomeMessage") ) {
     ui.notifications.info("D&D Search is ready.");
+
+    const activeGMs = game.users?.filter(x => x.isActiveGM) ?? [];
+    const activeGMNames = activeGMs.map(x => x.name).join(", ");
+    ui.notifications.info(`[D&D Search] Active Game Masters: ${activeGMNames}`);
   }
 });

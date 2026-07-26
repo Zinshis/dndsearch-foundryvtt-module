@@ -2,7 +2,7 @@
   "id": "dndsearch-mcp-module",
   "title": "D&D Search MCP Module",
   "description": "Search and reference tools for Dungeons & Dragons in Foundry VTT.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "library": "false",
   "manifestPlusVersion": "1.2.0",
   "authors": [
