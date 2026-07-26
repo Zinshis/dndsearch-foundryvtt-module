@@ -1,0 +1,20 @@
+{
+  "name": "foundryvttmodule",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "eslint": "^9.39.5",
+    "typescript": "^7.0.2"
+  }
+}
