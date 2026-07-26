@@ -1,20 +1,23 @@
 {
-  "name": "foundryvttmodule",
+  "name": "dndsearch-foundry-vtt-module",
   "version": "1.0.0",
-  "main": "app.js",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --build",
-    "clean": "tsc --build --clean"
+    "build": "tsc --project tsconfig.json",
+    "clean": "tsc --build --clean",
+    "sync-version": "node scripts/sync-module-version.mjs",
+    "package": "npm run sync-version && npm run build && node scripts/package.mjs",
+    "release": "npm run package"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "description": "",
+  "description": "Foundry VTT module for D&D search.",
+  "license": "MIT",
   "devDependencies": {
-    "@types/node": "^26.1.1",
-    "eslint": "^9.39.5",
-    "typescript": "^7.0.2"
+    "archiver": "^8.0.0",
+    "eslint": "^10.8.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@league-of-foundry-developers/foundry-vtt-types": "^13.346.0-beta.20250812191140"
   }
 }
