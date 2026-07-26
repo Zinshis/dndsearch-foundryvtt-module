@@ -33,8 +33,8 @@
   "changelog": "https://github.com/Zinshis/dndsearch-foundryvtt-module/blob/main/FoundryVTTModule/CHANGELOG.md",
   "readme": "https://github.com/Zinshis/dndsearch-foundryvtt-module/blob/main/FoundryVTTModule/README.md",
   "license": "https://github.com/Zinshis/dndsearch-foundryvtt-module/blob/main/FoundryVTTModule/LICENSE",
-  "manifest": "https://github.com/Zinshis/dndsearch-foundryvtt-module/releases/latest/download/module.json",
-  "download": "https://github.com/Zinshis/dndsearch-foundryvtt-module/releases/latest/download/dndsearch-mcp-module.zip",
+  "manifest": "https://raw.githubusercontent.com/Zinshis/dndsearch-foundryvtt-module/refs/heads/main/FoundryVTTModule/release/module.json",
+  "download": "https://raw.githubusercontent.com/Zinshis/dndsearch-foundryvtt-module/refs/heads/main/FoundryVTTModule/release/dndsearch-mcp-module.zip",
   "socket": false,
   "protected": false
 }
