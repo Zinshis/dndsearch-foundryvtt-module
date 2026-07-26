@@ -27,12 +27,12 @@ const runtimeEntries = [
 
 await mkdir(releaseRoot, { recursive: true });
 const packageManifest = JSON.parse(await readFile(packagePath, 'utf8'));
-const moduleTemplate = JSON.parse(await readFile(path.join(moduleRoot, 'module.json'), 'utf8'));
+const moduleTemplate = JSON.parse(await readFile(path.join(moduleRoot, 'module.template.json'), 'utf8'));
 const releaseManifest = {
   ...moduleTemplate,
   version: packageManifest.version,
-  manifest: `${repositoryUrl}/releases/latest/download/module.json`,
-  download: `${repositoryUrl}/releases/latest/download/dndsearch-mcp-module.zip`,
+  manifest: `${repositoryUrl}/releases/v${packageManifest.version}/download/module.json`,
+  download: `${repositoryUrl}/releases/v${packageManifest.version}/download/dndsearch-mcp-module.zip`,
 };
 
 await writeFile(releaseModulePath, `${JSON.stringify(releaseManifest, null, 2)}\n`);
